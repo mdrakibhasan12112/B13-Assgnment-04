@@ -14,23 +14,23 @@
  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="bg-base-200">
+<body class="bg-base-300">
  <header class="w-[80%] mx-auto">
   <h1 class="text-5xl font-bold text-black-500 mb-4">Job Application Tracker</h1>
   <div class="grid grid-cols-3 gap-8">
    <div class="bg-white p-4">
     <p>Total</p>
-    <p id="Total" class="font-bold">0</p>
+    <p id="total" class="font-bold">0</p>
    </div>
 
    <div class="bg-white p-4">
     <p>Interview</p>
-    <p id="interviewCount" class="font-bold text-green-500">0</p>
+    <p id="interview-count" class="font-bold text-green-500">0</p>
    </div>
 
    <div class="bg-white p-4">
     <p>Rejected</p>
-    <p id="rejectedCount" class="font-bold text-red-500">0</p>
+    <p id="rejected-count" class="font-bold text-red-500">0</p>
    </div>
   </div>
  </header>
@@ -52,20 +52,30 @@
    <button onclick="toggleStyle('all-filter-btn')" class="bg-accent text-white px-5 py-2"
     id="all-filter-btn">All</button>
 
-   <button onclick="toggleStyle('thriving-filter-btn')" class="bg-white px-5 py-2"
+   <button onclick="toggleStyle('interview-filter-btn')" class="bg-white px-5 py-2"
     id="interview-filter-btn">Interview</button>
 
-   <button onclick="toggleStyle('struggling-filter-btn')" class="bg-white px-5 py-2"
+   <button onclick="toggleStyle('rejected-filter-btn')" class="bg-white px-5 py-2"
     id="rejected-filter-btn">Rejected</button>
   </div>
 
-  <!-- <section id="filtered-section" class="hidden">
- 
-     </section> -->
+  <section id="filtered-section" class="hidden">
 
-  <section id="allCards" class="space-y-6">
+     </section>
+
+
+  <div id="empty-state" class="flex flex-col items-center justify-center text-center py-20 bg-white hidden">
+    <img src="images/jobs.png" alt="">
+    <h2 class="text-2xl font-semibold">No jobs available</h2>
+    <p class="text-gray-500">Check back soon for new job opportunities</p>
+  </div>
+
+
+
+
+  <section id="all-cards" class="space-y-6">
    <!-- card 1 -->
-   <div class="flex justify-between p-8 bg-white">
+   <div class="flex justify-between p-8 bg-white ">
     <!-- left site -->
     <div class="space-y-6">
      <div>
@@ -74,11 +84,9 @@
      </div>
 
      <div class="flex gap-2">
-      <p class="salary">Remote
-       •
-       Full-time
-       •
-       $130,000 - $175,000</p>
+      <p class="salary">Remote •Full-time •$130,000 - $175,000</p>
+      
+ 
      </div>
 
      <p class="change bg-base-300 w-[120px]">Not Applied</p>
@@ -86,8 +94,8 @@
       users worldwide.</p>
 
      <div>
-      <button class="thriving-btn text-green-400 border px-4 py-2">Interview</button>
-      <button class="struggling-btn text-red-400 border px-4 py-2">Rejected</button>
+      <button class="interview-btn text-green-400 border px-4 py-2">Interview</button>
+      <button class="rejected-btn text-red-400 border px-4 py-2">Rejected</button>
      </div>
 
     </div>
@@ -96,6 +104,7 @@
     <div>
      <button class="btn-delete px-4"><i class="fa-regular fa-trash-can"></i></button>
     </div>
+
    </div>
 
    <!-- card 2 -->
@@ -121,8 +130,8 @@
       trends.</p>
 
      <div>
-      <button class="thriving-btn text-green-400 border px-4 py-2">Interview</button>
-      <button class="struggling-btn text-red-400 border px-4 py-2">Rejected</button>
+      <button class="interview-btn text-green-400 border px-4 py-2">Interview</button>
+      <button class="rejected-btn text-red-400 border px-4 py-2">Rejected</button>
      </div>
 
     </div>
@@ -156,8 +165,8 @@
       .</p>
 
      <div>
-      <button class="thriving-btn text-green-400 border px-4 py-2">Interview</button>
-      <button class="struggling-btn text-red-400 border px-4 py-2">Rejected</button>
+      <button class="interview-btn text-green-400 border px-4 py-2">Interview</button>
+      <button class="rejected-btn text-red-400 border px-4 py-2">Rejected</button>
      </div>
 
     </div>
@@ -191,8 +200,8 @@
       infrastructure.</p>
 
      <div>
-      <button class="thriving-btn text-green-400 border px-4 py-2">Interview</button>
-      <button class="struggling-btn text-red-400 border px-4 py-2">Rejected</button>
+      <button class="interview-btn text-green-400 border px-4 py-2">Interview</button>
+      <button class="rejected-btn text-red-400 border px-4 py-2">Rejected</button>
      </div>
 
     </div>
@@ -226,8 +235,8 @@
       expertise required.</p>
 
      <div>
-      <button class="thriving-btn text-green-400 border px-4 py-2">Interview</button>
-      <button class="struggling-btn text-red-400 border px-4 py-2">Rejected</button>
+      <button class="interview-btn text-green-400 border px-4 py-2">Interview</button>
+      <button class="rejected-btn text-red-400 border px-4 py-2">Rejected</button>
      </div>
 
     </div>
@@ -261,8 +270,8 @@
       insurance, and professional development opportunities.</p>
 
      <div>
-      <button class="thriving-btn text-green-400 border px-4 py-2">Interview</button>
-      <button class="struggling-btn text-red-400 border px-4 py-2">Rejected</button>
+      <button class="interview-btn text-green-400 border px-4 py-2">Interview</button>
+      <button class="rejected-btn text-red-400 border px-4 py-2">Rejected</button>
      </div>
 
     </div>
@@ -296,8 +305,8 @@
       and equity package included.</p>
 
      <div>
-      <button class="thriving-btn text-green-400 border px-4 py-2">Interview</button>
-      <button class="struggling-btn text-red-400 border px-4 py-2">Rejected</button>
+      <button class="interview-btn text-green-400 border px-4 py-2">Interview</button>
+      <button class="rejected-btn text-red-400 border px-4 py-2">Rejected</button>
      </div>
 
     </div>
@@ -331,8 +340,8 @@
       will work with a talented team on cutting-edge projects.</p>
 
      <div>
-      <button class="thriving-btn text-green-400 border px-4 py-2">Interview</button>
-      <button class="struggling-btn text-red-400 border px-4 py-2">Rejected</button>
+      <button class="interview-btn text-green-400 border px-4 py-2">Interview</button>
+      <button class="rejected-btn text-red-400 border px-4 py-2">Rejected</button>
      </div>
 
     </div>
@@ -344,25 +353,14 @@
 
    </div>
 
-
-
   </section>
-
 
  </main>
 
 
 
 
-
-
-
-
-
-
-
-
- <script src="script.js"></script>
+ <script src="js/script.js"></script>
 </body>
 
 </html>
