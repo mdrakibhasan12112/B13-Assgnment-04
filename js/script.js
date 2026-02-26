@@ -64,7 +64,6 @@ mainContainer.addEventListener('click', function (event) {
 
   if (event.target.classList.contains('interview-btn')) {
     const parenNode = event.target.parentNode.parentNode;
-    // const parenNode = event.target.closest('.cards');
     const companyName = parenNode.querySelector('.company-name').innerText;
     const positionName = parenNode.querySelector('.position-name').innerText;
     const salary = parenNode.querySelector('.salary').innerText;
@@ -99,7 +98,6 @@ mainContainer.addEventListener('click', function (event) {
     calculateCount();
   } else if (event.target.classList.contains('rejected-btn')) {
     const parenNode = event.target.parentNode.parentNode;
-    // const parenNode = event.target.closest('.cards');
     const companyName = parenNode.querySelector('.company-name').innerText;
     const positionName = parenNode.querySelector('.position-name').innerText;
     const salary = parenNode.querySelector('.salary').innerText;
@@ -153,16 +151,8 @@ mainContainer.addEventListener('click', function (event) {
     } else if (currentStatus === 'rejected-filter-btn') {
       renderRejected();
     }
-  }
-  
-  
+  } 
 });
-
-
-
-
-
-
 
 function renderInterview() {
   filteredSection.innerHTML = '';
@@ -231,7 +221,6 @@ function renderRejected() {
     return;
   }
 
-
   for (let rejected of rejectedList) {
     console.log(rejected);
 
@@ -254,7 +243,7 @@ function renderRejected() {
      <p class="notes">${rejected.notes}</p>
 
      <div>
-      <button class="interview-btn text-green-400 border px-4 py-2">Interview</button>
+      <button class="interview-btn text-green-400 border px-4 py-2 ">Interview</button>
       <button class="rejected-btn text-red-400 border px-4 py-2">Rejected</button>
      </div>
 
