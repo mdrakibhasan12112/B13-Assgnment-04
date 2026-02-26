@@ -182,7 +182,8 @@ function renderInterview() {
     console.log(interview);
 
     let div = document.createElement('div');
-    div.className = 'flex justify-between p-8 bg-white';
+    div.className =
+      'flex flex-col gap-4 sm:flex-row justify-between p-8 bg-white';
     div.innerHTML = `
    <!-- left site -->
     <div class="space-y-6">
@@ -235,7 +236,8 @@ function renderRejected() {
     console.log(rejected);
 
     let div = document.createElement('div');
-    div.className = 'flex justify-between p-8 bg-white';
+    div.className =
+      'flex flex-col gap-4 sm:flex-row justify-between p-8 bg-white';
     div.innerHTML = `
    <!-- left site -->
     <div class="space-y-6">
